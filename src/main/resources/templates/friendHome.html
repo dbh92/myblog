@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link rel="icon" href="/images/fav.png" type="image/png" sizes="16x16">
+
+    <link rel="stylesheet" href="/css/main.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/color.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+	<title th:text="${searchUserById.name}"></title>
+</head>
+<body>
+<!--<div class="se-pre-con"></div>-->
+<div class="theme-layout">
+	
+	<div class="responsive-header">
+		<div class="mh-head first Sticky">
+			<span class="mh-btns-left">
+				<a class="" href="#menu"><i class="fa fa-align-justify"></i></a>
+			</span>
+			<span class="mh-text">
+				<a href="newsfeed.html" title=""><img src="images/logo2.png" alt=""></a>
+			</span>
+			<span class="mh-btns-right">
+				<a class="fa fa-sliders" href="#shoppingbag"></a>
+			</span>
+		</div>
+		<div class="mh-head second">
+			<form class="mh-form">
+				<input placeholder="search" />
+				<a href="#/" class="fa fa-search"></a>
+			</form>
+		</div>
+	</div><!-- responsive header -->
+	
+	<div class="topbar stick">
+		<div class="logo">
+			<a title="" href="/users/trangchu"><img src="images/logo.png" alt=""></a>
+		</div>
+		
+		<div class="top-area">
+			<ul class="setting-area">
+				<li>
+					<a href="/users/timeline/search" title="Home" data-ripple=""><i class="ti-search"></i></a>
+				</li>
+				<li><a href="newsfeed.html" title="Home" data-ripple=""><i class="ti-home"></i></a></li>
+				<li>
+					<a href="#" title="Notification" data-ripple="">
+						<i class="ti-bell"></i><span>20</span>
+					</a>
+					<div class="dropdowns">
+						<span>4 New Notifications</span>
+						<ul class="drops-menu">
+							<li>
+								<a href="notifications.html" title="">
+									<img src="images/resources/thumb-1.jpg" alt="">
+									<div class="mesg-meta">
+										<h6>sarah Loren</h6>
+										<span>Hi, how r u dear ...?</span>
+										<i>2 min ago</i>
+									</div>
+								</a>
+								<span class="tag green">New</span>
+							</li>
+							<li>
+								<a href="notifications.html" title="">
+									<img src="images/resources/thumb-2.jpg" alt="">
+									<div class="mesg-meta">
+										<h6>Jhon doe</h6>
+										<span>Hi, how r u dear ...?</span>
+										<i>2 min ago</i>
+									</div>
+								</a>
+								<span class="tag red">Reply</span>
+							</li>
+							<li>
+								<a href="notifications.html" title="">
+									<img src="images/resources/thumb-3.jpg" alt="">
+									<div class="mesg-meta">
+										<h6>Andrew</h6>
+										<span>Hi, how r u dear ...?</span>
+										<i>2 min ago</i>
+									</div>
+								</a>
+								<span class="tag blue">Unseen</span>
+							</li>
+							<li>
+								<a href="notifications.html" title="">
+									<img src="images/resources/thumb-4.jpg" alt="">
+									<div class="mesg-meta">
+										<h6>Tom cruse</h6>
+										<span>Hi, how r u dear ...?</span>
+										<i>2 min ago</i>
+									</div>
+								</a>
+								<span class="tag">New</span>
+							</li>
+							<li>
+								<a href="notifications.html" title="">
+									<img src="images/resources/thumb-5.jpg" alt="">
+									<div class="mesg-meta">
+										<h6>Amy</h6>
+										<span>Hi, how r u dear ...?</span>
+										<i>2 min ago</i>
+									</div>
+								</a>
+								<span class="tag">New</span>
+							</li>
+						</ul>
+						<a href="notifications.html" title="" class="more-mesg">view more</a>
+					</div>
+				</li>
+				<li>
+					<a href="#" title="Messages" data-ripple=""><i class="ti-comment"></i><span>12</span></a>
+					<div class="dropdowns">
+						<span>5 New Messages</span>
+						<ul class="drops-menu">
+							<li>
+								<a href="notifications.html" title="">
+									<img src="images/resources/thumb-1.jpg" alt="">
+									<div class="mesg-meta">
+										<h6>sarah Loren</h6>
+										<span>Hi, how r u dear ...?</span>
+										<i>2 min ago</i>
+									</div>
+								</a>
+								<span class="tag green">New</span>
+							</li>
+							<li>
+								<a href="notifications.html" title="">
+									<img src="images/resources/thumb-2.jpg" alt="">
+									<div class="mesg-meta">
+										<h6>Jhon doe</h6>
+										<span>Hi, how r u dear ...?</span>
+										<i>2 min ago</i>
+									</div>
+								</a>
+								<span class="tag red">Reply</span>
+							</li>
+							<li>
+								<a href="notifications.html" title="">
+									<img src="images/resources/thumb-3.jpg" alt="">
+									<div class="mesg-meta">
+										<h6>Andrew</h6>
+										<span>Hi, how r u dear ...?</span>
+										<i>2 min ago</i>
+									</div>
+								</a>
+								<span class="tag blue">Unseen</span>
+							</li>
+							<li>
+								<a href="notifications.html" title="">
+									<img src="images/resources/thumb-4.jpg" alt="">
+									<div class="mesg-meta">
+										<h6>Tom cruse</h6>
+										<span>Hi, how r u dear ...?</span>
+										<i>2 min ago</i>
+									</div>
+								</a>
+								<span class="tag">New</span>
+							</li>
+							<li>
+								<a href="notifications.html" title="">
+									<img src="images/resources/thumb-5.jpg" alt="">
+									<div class="mesg-meta">
+										<h6>Amy</h6>
+										<span>Hi, how r u dear ...?</span>
+										<i>2 min ago</i>
+									</div>
+								</a>
+								<span class="tag">New</span>
+							</li>
+						</ul>
+						<a href="messages.html" title="" class="more-mesg">view more</a>
+					</div>
+				</li>
+				<li><a href="#" title="Languages" data-ripple=""><i class="fa fa-globe"></i></a>
+					<div class="dropdowns languages">
+						<a href="#" title=""><i class="ti-check"></i>English</a>
+						<a href="#" title="">Arabic</a>
+						<a href="#" title="">Dutch</a>
+						<a href="#" title="">French</a>
+					</div>
+				</li>
+			</ul>
+			<div class="user-img">
+				<img src="images/resources/admin.jpg" alt="">
+				<span class="status f-online"></span>
+			</div>
+		</div>
+	</div><!-- topbar -->
+
+	<section>
+		<div class="feature-photo">
+			<figure><img th:src="${searchUserById.getCover()}" alt=""></figure>
+
+			<div class="container-fluid">
+				<div class="row merged">
+					<div class="col-lg-2 col-sm-3">
+						<div class="user-avatar">
+							<figure>
+								<img th:src="${searchUserById.getAvatar()}" alt="">
+							</figure>
+						</div>
+					</div>
+					<div class="col-lg-10 col-sm-9">
+						<div class="timeline-info">
+							<ul>
+								<li class="admin-name">
+									<h5><a th:href="@{/users/timeline/search/__${searchUserById.getAppUser_id()}__}"th:text="${searchUserById.name}"></a></h5>
+
+								</li>
+								<li>
+									<a class="active" href="/users/timeline" title="" data-ripple="">time line</a>
+									<a class="" href="timeline-photos.html" title="" data-ripple="">Photos</a>
+									<a class="" href="timeline-videos.html" title="" data-ripple="">Videos</a>
+									<a class="" href="timeline-friends.html" title="" data-ripple="">Friends</a>
+									<a class="" href="timeline-groups.html" title="" data-ripple="">Groups</a>
+									<a class="" href="about.html" title="" data-ripple="">about</a>
+									<a class="" href="#" title="" data-ripple="">more</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><!-- top area -->
+
+	<section>
+		<div class="gap gray-bg">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="row" id="page-contents">
+							<div class="col-lg-3">
+								<aside class="sidebar static">
+									<div class="widget">
+										<h4 class="widget-title">Shortcuts</h4>
+										<ul class="naves">
+											<li>
+												<i class="ti-clipboard"></i>
+												<a href="/users/timeline" title="">News feed</a>
+											</li>
+											<li>
+												<i class="ti-mouse-alt"></i>
+												<a href="inbox.html" title="">Inbox</a>
+											</li>
+											<li>
+												<i class="ti-files"></i>
+												<a href="/users/myhome" title="">My pages</a>
+											</li>
+											<li>
+												<i class="ti-user"></i>
+												<a href="timeline-friends.html" title="">friends</a>
+											</li>
+											<li>
+												<i class="ti-image"></i>
+												<a href="timeline-photos.html" title="">images</a>
+											</li>
+											<li>
+												<i class="ti-video-camera"></i>
+												<a href="timeline-videos.html" title="">videos</a>
+											</li>
+											<li>
+												<i class="ti-comments-smiley"></i>
+												<a href="messages.html" title="">Messages</a>
+											</li>
+											<li>
+												<i class="ti-bell"></i>
+												<a href="notifications.html" title="">Notifications</a>
+											</li>
+											<li>
+												<i class="ti-share"></i>
+												<a href="people-nearby.html" title="">People Nearby</a>
+											</li>
+											<li>
+												<i class="fa fa-bar-chart-o"></i>
+												<a href="insights.html" title="">insights</a>
+											</li>
+											<li>
+												<i class="ti-power-off"></i>
+												<a href="/logout" title="">Logout</a>
+											</li>
+										</ul>
+									</div><!-- Shortcuts -->
+
+								</aside>
+							</div><!-- sidebar -->
+							<div class="col-lg-6">
+								<div class="loadMore">
+									<div class="central-meta item">
+										<th:block th:each="theyPosts : ${searchListPostById}">
+											<div class="central-meta item">
+												<div class="user-post">
+													<div class="friend-info">
+														<figure>
+															<img src="#" alt="">
+														</figure>
+														<div class="friend-name">
+															<ins><a th:href="@{/users/timeline/search/__${theyPosts.getAppUser().getAppUser_id()}__}" title="" th:text="*{theyPosts.getAppUser().name}"></a></ins>
+															<span>thời gian đăng bài</span>
+														</div>
+														<div class="description">
+															<p th:text="*{theyPosts.getContent()}"></p>
+														</div>
+														<div class="post-meta">
+															<img th:src="${theyPosts.getPostImage()}" alt="">
+															<div class="we-video-info">
+																<ul>
+																	<li>
+																	<span class="like" data-toggle="tooltip" title="like">
+																		<i class="ti-heart"></i>
+																		<ins>2.2k</ins>
+																	</span>
+																	</li>
+																	<li>
+																	<span class="dislike" data-toggle="tooltip" title="dislike">
+																		<i class="ti-heart-broken"></i>
+																		<ins>dislike</ins>
+																	</span>
+																	</li>
+																	<li>
+																	<span class="comment" data-toggle="tooltip" title="Comments">
+																		<i class="fa fa-comments-o"></i>
+																		<ins>số comment</ins>
+																	</span>
+																	</li>
+
+	<!--																-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+																	<li class="social-media">
+																		<div class="menu">
+																			<div class="btn trigger"><i class="fa fa-share-alt"></i></div>
+																			<div class="rotater">
+																				<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-html5"></i></a></div>
+																			</div>
+																			<div class="rotater">
+																				<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-facebook"></i></a></div>
+																			</div>
+																			<div class="rotater">
+																				<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-google-plus"></i></a></div>
+																			</div>
+																			<div class="rotater">
+																				<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-twitter"></i></a></div>
+																			</div>
+																			<div class="rotater">
+																				<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-css3"></i></a></div>
+																			</div>
+																			<div class="rotater">
+																				<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-instagram"></i></a>
+																				</div>
+																			</div>
+																			<div class="rotater">
+																				<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-dribbble"></i></a>
+																				</div>
+																			</div>
+																			<div class="rotater">
+																				<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-pinterest"></i></a>
+																				</div>
+																			</div>
+
+																		</div>
+																	</li>
+	<!--																cái này đẹp đẹp này-->
+	<!--																-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+																</ul>
+															</div>
+														</div>
+													</div>
+
+
+													<div class="coment-area" >
+														<ul class="we-comet">
+															<th:block th:each="theycommentt : ${theyPosts.getCommentPosts()}">
+																<li>
+																	<div class="comet-avatar">
+																		<img src="images/resources/comet-1.jpg" alt="">
+																	</div>
+																	<div class="we-comment">
+																		<div class="coment-head">
+																			<h5><a th:href="@{/users/timeline/search/__${theycommentt.getAppUser().getAppUser_id()}__}" title="" th:text="*{theycommentt.getAppUser().name}"></a></h5>
+																			<span th:text="${theycommentt.getDate()}"></span>
+																			<a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>
+																		</div>
+																		<p th:text="*{theycommentt.content}"></p>
+																	</div>
+																</li>
+															</th:block>
+															<li class="post-comment">
+																<div class="comet-avatar">
+																	<img src="#" alt="">
+																</div>
+																<div class="post-comt-box">
+																	<form method="post" action="/users/creat/comment">
+																		<input hidden name="idPost" th:value="${theyPosts.getPost_id()}"/>
+																		<textarea name="content" placeholder="Post your comment"></textarea>
+																		<div class="add-smiles">
+																			<span class="em em-expressionless" title="add icon"></span>
+																		</div>
+																		<div class="smiles-bunch">
+																			<i class="em em---1"></i>
+																			<i class="em em-smiley"></i>
+																			<i class="em em-anguished"></i>
+																			<i class="em em-laughing"></i>
+																			<i class="em em-angry"></i>
+																			<i class="em em-astonished"></i>
+																			<i class="em em-blush"></i>
+																			<i class="em em-disappointed"></i>
+																			<i class="em em-worried"></i>
+																			<i class="em em-kissing_heart"></i>
+																			<i class="em em-rage"></i>
+																			<i class="em em-stuck_out_tongue"></i>
+																		</div>
+																		<button type="submit">comment</button>
+																	</form>
+																</div>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+
+										</th:block>
+
+
+
+
+								</div>
+							</div><!-- centerl meta -->
+							</div>
+							<div class="col-lg-3">
+								<aside class="sidebar static">
+									<div class="widget friend-list stick-widget">
+										<h4 class="widget-title">Follower</h4>
+										<div id="searchDir"></div>
+										<ul id="people-list" class="friendz-list">
+											<li>
+												<figure>
+													<img src="images/resources/friend-avatar.jpg" alt="">
+													<span class="status f-online"></span>
+												</figure>
+												<div class="friendz-meta">
+													<a href="home.html">bucky barnes</a>
+													<i><a href="https://wpkixx.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4136282f352433322e2d25243301262c20282d6f222e2c">[email&#160;protected]</a></i>
+												</div>
+											</li>
+										</ul>
+										<div class="chat-box">
+											<div class="chat-head">
+												<span class="status f-online"></span>
+												<h6>Bucky Barnes</h6>
+												<div class="more">
+													<span><i class="ti-more-alt"></i></span>
+													<span class="close-mesage"><i class="ti-close"></i></span>
+												</div>
+											</div>
+											<div class="chat-list">
+												<ul>
+													<li class="me">
+														<div class="chat-thumb"><img src="images/resources/chatlist1.jpg" alt=""></div>
+														<div class="notification-event">
+															<span class="chat-message-item">
+																Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks
+															</span>
+															<span class="notification-date"><time datetime="2004-07-24T18:18" class="entry-date updated">Yesterday at 8:10pm</time></span>
+														</div>
+													</li>
+													<li class="you">
+														<div class="chat-thumb"><img src="images/resources/chatlist2.jpg" alt=""></div>
+														<div class="notification-event">
+															<span class="chat-message-item">
+																Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks
+															</span>
+															<span class="notification-date"><time datetime="2004-07-24T18:18" class="entry-date updated">Yesterday at 8:10pm</time></span>
+														</div>
+													</li>
+													<li class="me">
+														<div class="chat-thumb"><img src="images/resources/chatlist1.jpg" alt=""></div>
+														<div class="notification-event">
+															<span class="chat-message-item">
+																Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks
+															</span>
+															<span class="notification-date"><time datetime="2004-07-24T18:18" class="entry-date updated">Yesterday at 8:10pm</time></span>
+														</div>
+													</li>
+												</ul>
+												<form class="text-box">
+													<textarea placeholder="Post enter to post..."></textarea>
+													<div class="add-smiles">
+														<span title="add icon" class="em em-expressionless"></span>
+													</div>
+													<div class="smiles-bunch">
+														<i class="em em---1"></i>
+														<i class="em em-smiley"></i>
+														<i class="em em-anguished"></i>
+														<i class="em em-laughing"></i>
+														<i class="em em-angry"></i>
+														<i class="em em-astonished"></i>
+														<i class="em em-blush"></i>
+														<i class="em em-disappointed"></i>
+														<i class="em em-worried"></i>
+														<i class="em em-kissing_heart"></i>
+														<i class="em em-rage"></i>
+														<i class="em em-stuck_out_tongue"></i>
+													</div>
+													<button type="submit"></button>
+												</form>
+											</div>
+										</div>
+									</div><!-- friends list sidebar -->
+								</aside>
+							</div><!-- sidebar -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-md-4">
+					<div class="widget">
+						<div class="foot-logo">
+							<div class="logo">
+								<a href="index-2.html" title=""><img src="images/logo.png" alt=""></a>
+							</div>
+							<p>
+								The trio took this simple idea and built it into the world’s leading carpooling platform.
+							</p>
+						</div>
+						<ul class="location">
+							<li>
+								<i class="ti-map-alt"></i>
+								<p>33 new montgomery st.750 san francisco, CA USA 94105.</p>
+							</li>
+							<li>
+								<i class="ti-mobile"></i>
+								<p>+1-56-346 345</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4">
+					<div class="widget">
+						<div class="widget-title"><h4>follow</h4></div>
+						<ul class="list-style">
+							<li><i class="fa fa-facebook-square"></i> <a href="https://web.facebook.com/shopcircut/" title="">facebook</a></li>
+							<li><i class="fa fa-twitter-square"></i><a href="https://twitter.com/login?lang=en" title="">twitter</a></li>
+							<li><i class="fa fa-instagram"></i><a href="https://www.instagram.com/?hl=en" title="">instagram</a></li>
+							<li><i class="fa fa-google-plus-square"></i> <a href="https://plus.google.com/discover" title="">Google+</a></li>
+							<li><i class="fa fa-pinterest-square"></i> <a href="https://www.pinterest.com/" title="">Pintrest</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4">
+					<div class="widget">
+						<div class="widget-title"><h4>Navigate</h4></div>
+						<ul class="list-style">
+							<li><a href="about.html" title="">about us</a></li>
+							<li><a href="contact.html" title="">contact us</a></li>
+							<li><a href="terms.html" title="">terms & Conditions</a></li>
+							<li><a href="#" title="">RSS syndication</a></li>
+							<li><a href="sitemap.html" title="">Sitemap</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4">
+					<div class="widget">
+						<div class="widget-title"><h4>useful links</h4></div>
+						<ul class="list-style">
+							<li><a href="#" title="">leasing</a></li>
+							<li><a href="#" title="">submit route</a></li>
+							<li><a href="#" title="">how does it work?</a></li>
+							<li><a href="#" title="">agent listings</a></li>
+							<li><a href="#" title="">view All</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4">
+					<div class="widget">
+						<div class="widget-title"><h4>download apps</h4></div>
+						<ul class="colla-apps">
+							<li><a href="https://play.google.com/store?hl=en" title=""><i class="fa fa-android"></i>android</a></li>
+							<li><a href="https://www.apple.com/lae/ios/app-store/" title=""><i class="ti-apple"></i>iPhone</a></li>
+							<li><a href="https://www.microsoft.com/store/apps" title=""><i class="fa fa-windows"></i>Windows</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer><!-- footer -->
+</div>
+	<script data-cfasync="false" src="/../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="/js/main.min.js"></script>
+	<script src="/js/script.js"></script>
+</body>
+</html>

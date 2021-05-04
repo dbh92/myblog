@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+	<title>Winku Social Network Toolkit</title>
+    <link rel="icon" href="images/fav.png" type="image/png" sizes="16x16">
+
+    <link rel="stylesheet" href="/css/main.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/color.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+
+</head>
+<body>
+<!--<div class="se-pre-con"></div>-->
+<div class="theme-layout">
+	
+	<div class="responsive-header">
+		<div class="mh-head first Sticky">
+			<span class="mh-btns-left">
+				<a class="" href="#menu"><i class="fa fa-align-justify"></i></a>
+			</span>
+			<span class="mh-text">
+				<a href="newsfeed.html" title=""><img src="images/logo2.png" alt=""></a>
+			</span>
+		</div>
+		<div class="mh-head second">
+			<form class="mh-form">
+				<input placeholder="search" />
+				<a href="#/" class="fa fa-search"></a>
+			</form>
+		</div>
+	</div><!-- responsive header -->
+
+	<div class="topbar stick">
+		<div class="logo">
+			<a title="" href="/users/trangchu"><img src="/images/logo.png" alt=""></a>
+		</div>
+
+		<div class="top-area">
+			<ul class="setting-area">
+				<li>
+					<a href="/users/timeline/search" title="Home" data-ripple=""><i class="ti-search"></i></a>
+				</li>
+				<li><a href="/users/myhome" title="Home"><i class="ti-home"></i></a></li>
+			</ul>
+
+		</div>
+	</div><!-- topbar -->
+
+	<section>
+		<div class="gap gray-bg">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="row" id="page-contents">
+							<div class="col-lg-3">
+								<aside class="sidebar static">
+									<div class="widget">
+										<h4 class="widget-title">Shortcuts</h4>
+										<ul class="naves">
+											<li>
+												<i class="ti-clipboard"></i>
+												<a href="newsfeed.html" title="">News feed</a>
+											</li>
+											<li>
+												<i class="ti-mouse-alt"></i>
+												<a href="inbox.html" title="">Inbox</a>
+											</li>
+											<li>
+												<i class="ti-files"></i>
+												<a href="/users/myhome" title="">My pages</a>
+											</li>
+											<li>
+												<i class="ti-user"></i>
+												<a href="timeline-friends.html" title="">friends</a>
+											</li>
+											<li>
+												<i class="ti-image"></i>
+												<a href="timeline-photos.html" title="">images</a>
+											</li>
+											<li>
+												<i class="ti-video-camera"></i>
+												<a href="timeline-videos.html" title="">videos</a>
+											</li>
+											<li>
+												<i class="ti-comments-smiley"></i>
+												<a href="messages.html" title="">Messages</a>
+											</li>
+											<li>
+												<i class="ti-bell"></i>
+												<a href="notifications.html" title="">Notifications</a>
+											</li>
+											<li>
+												<i class="ti-share"></i>
+												<a href="people-nearby.html" title="">People Nearby</a>
+											</li>
+											<li>
+												<i class="fa fa-bar-chart-o"></i>
+												<a href="insights.html" title="">insights</a>
+											</li>
+											<li>
+												<i class="ti-power-off"></i>
+												<a href="/logout" title="">Logout</a>
+											</li>
+										</ul>
+									</div><!-- Shortcuts -->
+
+								</aside>
+							</div><!-- sidebar -->
+							<div class="col-lg-6">
+								<div class="central-meta item">
+									<div class="new-postbox">
+										<figure>
+											<img src="images/resources/admin2.jpg" alt="">
+										</figure>
+										<div class="newpst-input">
+											<form method="post" action="/users/timeline/creat/post" th:object="${post}" enctype="multipart/form-data">
+												<textarea th:field="*{content}" rows="2" placeholder="What do you feel today?"></textarea>
+												<div class="attachments">
+													<ul>
+														<li>
+															<i class="fa fa-music"></i>
+															<label  class="fileContainer">
+																<input type="file">
+															</label>
+														</li>
+														<li>
+															<i class="fa fa-image"></i>
+															<label class="fileContainer">
+																<input type="file" name="postImageFile">
+															</label>
+														</li>
+														<li>
+															<i class="fa fa-video-camera"></i>
+															<label class="fileContainer">
+																<input type="file">
+															</label>
+														</li>
+														<li>
+															<i class="fa fa-camera"></i>
+															<label class="fileContainer">
+																<input type="file">
+															</label>
+														</li>
+														<li>
+															<button type="submit">Publish</button>
+														</li>
+													</ul>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div><!-- add post new box -->
+								<div class="loadMore">
+									<th:block th:each="posts : ${listPost}">
+										<div class="central-meta item">
+
+											<div class="user-post">
+												<div class="friend-info">
+													<figure>
+														<img th:src="${posts.getAppUser().getAvatar()}" alt="">
+													</figure>
+													<div class="friend-name">
+														<ins><a th:href="@{/users/timeline/search/__${posts.getAppUser().getAppUser_id()}__}" th:text="*{posts.getAppUser().name}"></a></ins>
+														<span th:text="${posts.getDate()}"></span>
+													</div>
+													<div class="description">
+														<p th:text="*{posts.getContent()}"></p>
+													</div>
+													<div class="post-meta">
+														<img th:src="${posts.getPostImage()}" alt="">
+														<div class="we-video-info">
+															<ul>
+																<li>
+																<span class="like" data-toggle="tooltip" title="like">
+																	<i class="ti-heart"></i>
+																	<ins>2.2k</ins>
+																</span>
+																</li>
+																<li>
+																<span class="dislike" data-toggle="tooltip" title="dislike">
+																	<i class="ti-heart-broken"></i>
+																	<ins>dislike</ins>
+																</span>
+																</li>
+																<li>
+																<span class="comment" data-toggle="tooltip" title="Comments">
+																	<i class="fa fa-comments-o"></i>
+																	<ins>số comment</ins>
+																</span>
+																</li>
+
+																<!--																-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+																<li class="social-media">
+																	<div class="menu">
+																		<div class="btn trigger"><i class="fa fa-share-alt"></i></div>
+																		<div class="rotater">
+																			<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-html5"></i></a></div>
+																		</div>
+																		<div class="rotater">
+																			<div class="btn btn-icon"><a href="https://web.facebook.com/" title=""><i class="fa fa-facebook"></i></a></div>
+																		</div>
+																		<div class="rotater">
+																			<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-google-plus"></i></a></div>
+																		</div>
+																		<div class="rotater">
+																			<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-twitter"></i></a></div>
+																		</div>
+																		<div class="rotater">
+																			<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-css3"></i></a></div>
+																		</div>
+																		<div class="rotater">
+																			<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-instagram"></i></a>
+																			</div>
+																		</div>
+																		<div class="rotater">
+																			<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-dribbble"></i></a>
+																			</div>
+																		</div>
+																		<div class="rotater">
+																			<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-pinterest"></i></a>
+																			</div>
+																		</div>
+
+																	</div>
+																</li>
+																<!--																cái này đẹp đẹp này-->
+																<!--																-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+															</ul>
+														</div>
+													</div>
+												</div>
+												<div class="coment-area" >
+													<ul class="we-comet">
+														<th:block th:each="commentt : ${posts.getCommentPosts()}">
+															<li>
+																<div class="comet-avatar">
+																	<img src="images/resources/comet-1.jpg" alt="">
+																</div>
+																<div class="we-comment">
+																	<div class="coment-head">
+																		<h5><a th:href="@{/users/timeline/search/__${commentt.getAppUser().getAppUser_id()}__}" title="" th:text="*{commentt.getAppUser().name}"></a></h5>
+																		<span th:text="${commentt.getDate()}"></span>
+																		<a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>
+																	</div>
+																	<p th:text="*{commentt.content}"></p>
+																</div>
+															</li>
+														</th:block>
+														<li class="post-comment">
+															<div class="comet-avatar">
+																<img src="#" alt="">
+															</div>
+															<div class="post-comt-box">
+																<form method="post" action="/users/timeline/creat/comment">
+																	<input hidden name="idPost" th:value="${posts.getPost_id()}"/>
+																	<textarea name="content" placeholder="Post your comment"></textarea>
+																	<div class="add-smiles">
+																		<span class="em em-expressionless" title="add icon"></span>
+																	</div>
+																	<div class="smiles-bunch">
+																		<i class="em em---1"></i>
+																		<i class="em em-smiley"></i>
+																		<i class="em em-anguished"></i>
+																		<i class="em em-laughing"></i>
+																		<i class="em em-angry"></i>
+																		<i class="em em-astonished"></i>
+																		<i class="em em-blush"></i>
+																		<i class="em em-disappointed"></i>
+																		<i class="em em-worried"></i>
+																		<i class="em em-kissing_heart"></i>
+																		<i class="em em-rage"></i>
+																		<i class="em em-stuck_out_tongue"></i>
+																	</div>
+																	<button type="submit">comment</button>
+																</form>
+															</div>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+
+									</th:block>
+
+
+
+
+								</div>
+							</div><!-- centerl meta -->
+							<div class="col-lg-3">
+								<aside class="sidebar static">
+									<div class="widget">
+										<h4 class="widget-title">Your page</h4>	
+										<div class="your-page">
+											<figure>
+												<a href="/users/myhome" title=""><img th:src="${user.getAvatar()}" alt=""></a>
+												<a href="/users/myhome" title="" class="underline" th:text="${user.name}"></a>
+											</figure>
+											<div class="page-meta">
+
+												<span th:text="${user.getPhoneNumber()}"></span>
+												<span th:text="${user.getDateOfBirth()}"></span>
+											</div>
+										</div>
+									</div><!-- page like widget -->
+								</aside>
+							</div><!-- sidebar -->
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>	
+	</section>
+
+
+	<div class="bottombar">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<span class="copyright"><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></span>
+					<i><img src="images/credit-cards.png" alt=""></i>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+	<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+
+	</script><script src="/js/main.min.js"></script>
+	<script src="/js/script.js"></script>
+	<script src="/js/map-init.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8c55_YHLvDHGACkQscgbGLtLRdxBDCfI"></script>
+
+</body>	
+
+</html>
